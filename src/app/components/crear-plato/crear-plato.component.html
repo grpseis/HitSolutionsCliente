@@ -1,0 +1,71 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">{{ titulo | uppercase }}</span>
+          <form class="mt-3" [formGroup]="platoForm" (ngSubmit)="agregarplato()">
+            <div class="mb-3">
+              <input type="text" formControlName="name"
+                     class="form-control form-control-lg" placeholder="Nombre Plato">
+              <div class="text-danger"
+                   *ngIf="platoForm.get('name')?.hasError('required') && platoForm.get('name')?.touched">
+                <span>El nombre del plato <strong> es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="principal"
+                     class="form-control form-control-lg" placeholder="Principal">
+              <div class="text-danger"
+                   *ngIf="platoForm.get('principal')?.hasError('required') && platoForm.get('principal')?.touched">
+                <span>Plato principal <strong> es obligatorio</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="farinacea"
+                     class="form-control form-control-lg" placeholder="Farinacea">
+              <div class="text-danger"
+                   *ngIf="platoForm.get('farinacea')?.hasError('required') && platoForm.get('farinacea')?.touched">
+                <span>La farinacea <strong> es obligatoria</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="tuberculos"
+                     class="form-control form-control-lg" placeholder="Tubérculos">
+              <div class="text-danger"
+                   *ngIf="platoForm.get('tuberculos')?.hasError('required') && platoForm.get('tuberculos')?.touched">
+                <span>Los tubérculos <strong> son obligatorios</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="verdura"
+                     class="form-control form-control-lg" placeholder="Verdura">
+              <div class="text-danger"
+                   *ngIf="platoForm.get('verdura')?.hasError('required') && platoForm.get('verdura')?.touched">
+                <span>Las verduras <strong> son obligatorias</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="number" formControlName="precio"
+                     class="form-control form-control-lg" placeholder="Precio">
+              <div class="text-danger"
+                   *ngIf="platoForm.get('precio')?.hasError('required') && platoForm.get('precio')?.touched">
+                <span>El precio <strong> es obligatorio</strong></span>
+              </div>
+            </div>
+
+
+            <div class="mb-3">
+              <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+              <button type="submit" [disabled]="platoForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

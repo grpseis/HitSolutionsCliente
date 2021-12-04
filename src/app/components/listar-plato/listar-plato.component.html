@@ -1,0 +1,41 @@
+<div class="container mt-xl-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">LISTADO DE PLATOS</span>
+          <button class="btn btn-success float-end" routerLink="/crear-plato">NUEVO</button>
+          <table *ngIf="listPlatos.length>0" class="table table-striped mt-3">
+            <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Principal</th>
+              <th scope="col">Farinacea</th>
+              <th scope="col">Tuberculos</th>
+              <th scope="col">Verdura</th>
+              <th scope="col">Precio</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let plato of listPlatos">
+              <td>{{plato.name}}</td>
+              <td>{{plato.principal}}</td>
+              <td>{{plato.farinacea}}</td>
+              <td>{{plato.tuberculos}}</td>
+              <td>{{plato.verdura}}</td>
+              <td>{{plato.precio | currency: 'USD' }}</td>
+              <td>
+                <i [routerLink]="['/editar-plato',plato._id]" class="fas fa-edit text-primary"></i>
+                <i (click)="eliminarPlato(plato._id)" class="fas fa-trash text-danger"></i>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="listPlatos.length==0"> No hay Platos para mostrar</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
